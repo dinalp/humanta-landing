@@ -1,11 +1,24 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Inter, Manrope, Poppins } from "next/font/google";
 import "./globals.css";
 
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
 const poppins = Poppins({
-  variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -36,8 +49,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>{children}</body>
+    <html
+      lang="en"
+      className={`${inter.variable} ${manrope.variable} ${poppins.variable}`}
+    >
+      <body className="font-body antialiased">{children}</body>
     </html>
   );
 }
