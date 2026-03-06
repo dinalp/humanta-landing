@@ -1,7 +1,7 @@
 # Requirements: Humanta Landing Page
 
 **Defined:** 2026-03-07
-**Core Value:** The site must feel premium and human — matching the warmth and polish of the Framer original while giving full code ownership and a working contact pipeline.
+**Core Value:** The site must feel premium and human -- matching the warmth and polish of the Framer original while giving full code ownership and a working contact pipeline.
 
 ## v1 Requirements
 
@@ -89,7 +89,7 @@
 | Payment processing | Humanta pricing is custom/B2B, not self-serve |
 | Multi-language / i18n | English-only, Sydney market |
 | Dark/light mode toggle | Brand aesthetic is intentionally dark + cream sections |
-| Chatbot / live chat | Premature — contact form is sufficient for lead volume |
+| Chatbot / live chat | Premature -- contact form is sufficient for lead volume |
 | Video backgrounds | Performance killer, accessibility issues |
 | Carousel/slider components | Poor UX, low engagement |
 
@@ -97,46 +97,46 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| NAV-01 | TBD | Pending |
-| NAV-02 | TBD | Pending |
-| NAV-03 | TBD | Pending |
-| NAV-04 | TBD | Pending |
-| NAV-05 | TBD | Pending |
-| HERO-01 | TBD | Pending |
-| HERO-02 | TBD | Pending |
-| HERO-03 | TBD | Pending |
-| STORY-01 | TBD | Pending |
-| STORY-02 | TBD | Pending |
-| STORY-03 | TBD | Pending |
-| STORY-04 | TBD | Pending |
-| HIW-01 | TBD | Pending |
-| HIW-02 | TBD | Pending |
-| PRICE-01 | TBD | Pending |
-| PRICE-02 | TBD | Pending |
-| FAQ-01 | TBD | Pending |
-| FAQ-02 | TBD | Pending |
-| CTA-01 | TBD | Pending |
-| CONTACT-01 | TBD | Pending |
-| CONTACT-02 | TBD | Pending |
-| CONTACT-03 | TBD | Pending |
-| CONTACT-04 | TBD | Pending |
-| CONTACT-05 | TBD | Pending |
-| FOOT-01 | TBD | Pending |
-| GLOBAL-01 | TBD | Pending |
-| GLOBAL-02 | TBD | Pending |
-| GLOBAL-03 | TBD | Pending |
-| GLOBAL-04 | TBD | Pending |
-| GLOBAL-05 | TBD | Pending |
-| GLOBAL-06 | TBD | Pending |
-| GLOBAL-07 | TBD | Pending |
-| GLOBAL-08 | TBD | Pending |
-| GLOBAL-09 | TBD | Pending |
+| NAV-01 | Phase 1 | Pending |
+| NAV-02 | Phase 3 | Pending |
+| NAV-03 | Phase 1 | Pending |
+| NAV-04 | Phase 3 | Pending |
+| NAV-05 | Phase 1 | Pending |
+| HERO-01 | Phase 1 | Pending |
+| HERO-02 | Phase 2 | Pending |
+| HERO-03 | Phase 2 | Pending |
+| STORY-01 | Phase 1 | Pending |
+| STORY-02 | Phase 2 | Pending |
+| STORY-03 | Phase 2 | Pending |
+| STORY-04 | Phase 1 | Pending |
+| HIW-01 | Phase 1 | Pending |
+| HIW-02 | Phase 3 | Pending |
+| PRICE-01 | Phase 1 | Pending |
+| PRICE-02 | Phase 1 | Pending |
+| FAQ-01 | Phase 1 | Pending |
+| FAQ-02 | Phase 3 | Pending |
+| CTA-01 | Phase 1 | Pending |
+| CONTACT-01 | Phase 4 | Pending |
+| CONTACT-02 | Phase 4 | Pending |
+| CONTACT-03 | Phase 4 | Pending |
+| CONTACT-04 | Phase 4 | Pending |
+| CONTACT-05 | Phase 4 | Pending |
+| FOOT-01 | Phase 1 | Pending |
+| GLOBAL-01 | Phase 3 | Pending |
+| GLOBAL-02 | Phase 2 | Pending |
+| GLOBAL-03 | Phase 2 | Pending |
+| GLOBAL-04 | Phase 3 | Pending |
+| GLOBAL-05 | Phase 3 | Pending |
+| GLOBAL-06 | Phase 1 | Pending |
+| GLOBAL-07 | Phase 5 | Pending |
+| GLOBAL-08 | Phase 5 | Pending |
+| GLOBAL-09 | Phase 1 | Pending |
 
 **Coverage:**
 - v1 requirements: 34 total
-- Mapped to phases: 0
-- Unmapped: 34
+- Mapped to phases: 34
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-07*
-*Last updated: 2026-03-07 after initial definition*
+*Last updated: 2026-03-07 after roadmap creation*
