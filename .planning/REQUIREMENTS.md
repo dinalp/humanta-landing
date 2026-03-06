@@ -1,0 +1,142 @@
+# Requirements: Humanta Landing Page
+
+**Defined:** 2026-03-07
+**Core Value:** The site must feel premium and human — matching the warmth and polish of the Framer original while giving full code ownership and a working contact pipeline.
+
+## v1 Requirements
+
+### Navigation
+
+- [ ] **NAV-01**: User sees sticky nav with Humanta logo, section links (What we do, How it works, Plans), and "Get in touch" CTA button
+- [ ] **NAV-02**: User can open mobile hamburger menu with animated slide-in containing all nav links
+- [ ] **NAV-03**: User can click nav link to smooth-scroll to the corresponding section
+- [ ] **NAV-04**: User sees the active section highlighted in the nav as they scroll
+- [ ] **NAV-05**: Nav transitions from transparent (over hero) to solid background on scroll
+
+### Hero
+
+- [ ] **HERO-01**: User sees full-viewport hero with background image, "Make human connection company policy" tagline, "Humanta" headline, description text, and "Start now" CTA
+- [ ] **HERO-02**: User sees parallax effect on hero background image when scrolling (desktop only)
+- [ ] **HERO-03**: User sees staggered text reveal animation on hero headline on page load
+
+### Story
+
+- [ ] **STORY-01**: User sees 3 dark-background panels with text (left) and image (right) telling the Humanta story
+- [ ] **STORY-02**: User experiences scroll-pinned panel transitions (GSAP) as they scroll through the story section
+- [ ] **STORY-03**: User sees images reveal via clip-path/scale animations as panels enter
+- [ ] **STORY-04**: User sees key phrases highlighted in orange (#f5b614) accent text
+
+### How It Works
+
+- [ ] **HIW-01**: User sees "How Humanta Works" section with 4 numbered steps on cream background
+- [ ] **HIW-02**: User can navigate between steps via tab/stepper UI with animated transitions
+
+### Pricing
+
+- [ ] **PRICE-01**: User sees 2 pricing cards: Essential (per redeemed spark) and Pilot Package - Sydney (10 Humanta Sparks)
+- [ ] **PRICE-02**: Each card shows feature checklist with checkmarks and "Get in touch" CTA
+
+### FAQ
+
+- [ ] **FAQ-01**: User sees "Everything you need to know" section with 6 expandable questions
+- [ ] **FAQ-02**: User can expand/collapse FAQ items with smooth height animation
+
+### CTA Banner
+
+- [ ] **CTA-01**: User sees full-width CTA section with warm background image, "Ready to keep and attract the best talent?" headline, and "Let's Talk" button
+
+### Contact
+
+- [ ] **CONTACT-01**: User can visit /contact page with form: Name, Email, Phone, Employees dropdown, Notes
+- [ ] **CONTACT-02**: Form validates input client-side and server-side with clear error messages
+- [ ] **CONTACT-03**: Submissions stored in database (Vercel Postgres)
+- [ ] **CONTACT-04**: Email notification sent to Humanta team on submission (Resend)
+- [ ] **CONTACT-05**: User sees loading, success, and error states on form submission
+
+### Footer
+
+- [ ] **FOOT-01**: User sees footer with Humanta logo, tagline, section links, social links (LinkedIn, Instagram, TikTok), and privacy policy link
+
+### Global
+
+- [ ] **GLOBAL-01**: User sees floating "Let's talk" button (bottom-right) on all pages
+- [ ] **GLOBAL-02**: User experiences scroll-triggered section reveals (fade + slide) throughout the page
+- [ ] **GLOBAL-03**: User experiences buttery-smooth scroll momentum (Lenis)
+- [ ] **GLOBAL-04**: User sees micro-interactions on buttons/links (hover scale, glow)
+- [ ] **GLOBAL-05**: Users with reduced-motion OS setting see content without animations
+- [ ] **GLOBAL-06**: Site is fully responsive across mobile, tablet, and desktop
+- [ ] **GLOBAL-07**: Site achieves Lighthouse 90+ performance score
+- [ ] **GLOBAL-08**: Site is deployed to Vercel
+- [ ] **GLOBAL-09**: All images sourced from live Framer site (humanta.co)
+
+## v2 Requirements
+
+### Enhancements
+
+- **ENH-01**: CMS integration for FAQ, pricing, and content management
+- **ENH-02**: Blog / content pages
+- **ENH-03**: Analytics dashboard (Vercel Analytics + Speed Insights)
+- **ENH-04**: Custom cursor effects (desktop only)
+- **ENH-05**: Page transitions between home and /contact
+- **ENH-06**: Social proof section (testimonials, client logos)
+- **ENH-07**: Scroll progress indicator bar
+
+## Out of Scope
+
+| Feature | Reason |
+|---------|--------|
+| Authentication / user accounts | Landing page only, no user-facing product |
+| Payment processing | Humanta pricing is custom/B2B, not self-serve |
+| Multi-language / i18n | English-only, Sydney market |
+| Dark/light mode toggle | Brand aesthetic is intentionally dark + cream sections |
+| Chatbot / live chat | Premature — contact form is sufficient for lead volume |
+| Video backgrounds | Performance killer, accessibility issues |
+| Carousel/slider components | Poor UX, low engagement |
+
+## Traceability
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| NAV-01 | TBD | Pending |
+| NAV-02 | TBD | Pending |
+| NAV-03 | TBD | Pending |
+| NAV-04 | TBD | Pending |
+| NAV-05 | TBD | Pending |
+| HERO-01 | TBD | Pending |
+| HERO-02 | TBD | Pending |
+| HERO-03 | TBD | Pending |
+| STORY-01 | TBD | Pending |
+| STORY-02 | TBD | Pending |
+| STORY-03 | TBD | Pending |
+| STORY-04 | TBD | Pending |
+| HIW-01 | TBD | Pending |
+| HIW-02 | TBD | Pending |
+| PRICE-01 | TBD | Pending |
+| PRICE-02 | TBD | Pending |
+| FAQ-01 | TBD | Pending |
+| FAQ-02 | TBD | Pending |
+| CTA-01 | TBD | Pending |
+| CONTACT-01 | TBD | Pending |
+| CONTACT-02 | TBD | Pending |
+| CONTACT-03 | TBD | Pending |
+| CONTACT-04 | TBD | Pending |
+| CONTACT-05 | TBD | Pending |
+| FOOT-01 | TBD | Pending |
+| GLOBAL-01 | TBD | Pending |
+| GLOBAL-02 | TBD | Pending |
+| GLOBAL-03 | TBD | Pending |
+| GLOBAL-04 | TBD | Pending |
+| GLOBAL-05 | TBD | Pending |
+| GLOBAL-06 | TBD | Pending |
+| GLOBAL-07 | TBD | Pending |
+| GLOBAL-08 | TBD | Pending |
+| GLOBAL-09 | TBD | Pending |
+
+**Coverage:**
+- v1 requirements: 34 total
+- Mapped to phases: 0
+- Unmapped: 34
+
+---
+*Requirements defined: 2026-03-07*
+*Last updated: 2026-03-07 after initial definition*
