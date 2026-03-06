@@ -29,12 +29,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. User can click any nav link and the page smooth-scrolls to the correct section
   3. User sees all content sections (hero, story panels, how it works, pricing cards, FAQ, CTA banner, footer) with real images from humanta.co, correct typography (Inter/Manrope/Poppins), and brand colors (dark + cream + orange accent)
   4. User can view the site on mobile, tablet, and desktop with appropriate responsive layouts
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
-- [ ] 01-03: TBD
+- [ ] 01-01-PLAN.md — Foundation (theme, fonts, types, constants, images) + Navbar + Hero
+- [ ] 01-02-PLAN.md — Story, How It Works, and Pricing sections
+- [ ] 01-03-PLAN.md — FAQ, CTA Banner, Footer + full page assembly + visual verification
 
 ### Phase 2: Scroll Animations
 **Goal**: User experiences premium scroll-driven animations throughout the page -- parallax hero, pinned story panels, staggered text reveals, and buttery-smooth scroll
@@ -103,7 +103,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Layout | 0/3 | Not started | - |
+| 1. Foundation and Layout | 0/3 | Planned | - |
 | 2. Scroll Animations | 0/2 | Not started | - |
 | 3. Interactive Components | 0/2 | Not started | - |
 | 4. Contact Form Backend | 0/2 | Not started | - |
