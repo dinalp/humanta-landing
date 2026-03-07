@@ -33,7 +33,7 @@ export const STORY_PANELS: StoryPanel[] = [
     title: "Real connection can\u2019t be Slacked",
     description:
       "As screens dominate and burnout rises, the relationships that actually sustain us are being squeezed to the margins. The moments that build trust and loyalty happen offline, over shared experiences.",
-    highlightPhrase: "happens offline",
+    highlightPhrase: "happen offline",
     image: "/images/story/panel-2.png",
     imageAlt:
       "Two people having an intimate conversation over a meal, representing genuine connection",
