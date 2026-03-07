@@ -62,11 +62,11 @@ Plans:
   3. User can navigate between the 4 How It Works steps via a tabbed stepper with animated transitions
   4. User can expand and collapse FAQ items with smooth height animation
   5. User sees a floating "Let's talk" button (bottom-right) on all pages, and hover micro-interactions on buttons/links; users with reduced-motion settings see content without animations
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md — Motion setup, MotionConfig reduced-motion, FloatingCTA, FAQ accordion, hover micro-interactions
+- [ ] 03-02-PLAN.md — Mobile hamburger menu, scroll spy active nav, How It Works tabbed stepper + visual verification
 
 ### Phase 4: Contact Form Backend
 **Goal**: User can submit a contact inquiry that is validated, stored in a database, and triggers an email notification to the Humanta team
