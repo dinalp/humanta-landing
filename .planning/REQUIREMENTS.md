@@ -39,7 +39,7 @@
 ### FAQ
 
 - [x] **FAQ-01**: User sees "Everything you need to know" section with 6 expandable questions
-- [ ] **FAQ-02**: User can expand/collapse FAQ items with smooth height animation
+- [x] **FAQ-02**: User can expand/collapse FAQ items with smooth height animation
 
 ### CTA Banner
 
@@ -59,11 +59,11 @@
 
 ### Global
 
-- [ ] **GLOBAL-01**: User sees floating "Let's talk" button (bottom-right) on all pages
+- [x] **GLOBAL-01**: User sees floating "Let's talk" button (bottom-right) on all pages
 - [ ] **GLOBAL-02**: User experiences scroll-triggered section reveals (fade + slide) throughout the page
 - [ ] **GLOBAL-03**: User experiences buttery-smooth scroll momentum (Lenis)
-- [ ] **GLOBAL-04**: User sees micro-interactions on buttons/links (hover scale, glow)
-- [ ] **GLOBAL-05**: Users with reduced-motion OS setting see content without animations
+- [x] **GLOBAL-04**: User sees micro-interactions on buttons/links (hover scale, glow)
+- [x] **GLOBAL-05**: Users with reduced-motion OS setting see content without animations
 - [x] **GLOBAL-06**: Site is fully responsive across mobile, tablet, and desktop
 - [ ] **GLOBAL-07**: Site achieves Lighthouse 90+ performance score
 - [ ] **GLOBAL-08**: Site is deployed to Vercel
@@ -114,7 +114,7 @@
 | PRICE-01 | Phase 1 | Complete |
 | PRICE-02 | Phase 1 | Complete |
 | FAQ-01 | Phase 1 | Complete |
-| FAQ-02 | Phase 3 | Pending |
+| FAQ-02 | Phase 3 | Complete |
 | CTA-01 | Phase 1 | Complete |
 | CONTACT-01 | Phase 4 | Pending |
 | CONTACT-02 | Phase 4 | Pending |
@@ -122,11 +122,11 @@
 | CONTACT-04 | Phase 4 | Pending |
 | CONTACT-05 | Phase 4 | Pending |
 | FOOT-01 | Phase 1 | Complete |
-| GLOBAL-01 | Phase 3 | Pending |
+| GLOBAL-01 | Phase 3 | Complete |
 | GLOBAL-02 | Phase 2 | Pending |
 | GLOBAL-03 | Phase 2 | Pending |
-| GLOBAL-04 | Phase 3 | Pending |
-| GLOBAL-05 | Phase 3 | Pending |
+| GLOBAL-04 | Phase 3 | Complete |
+| GLOBAL-05 | Phase 3 | Complete |
 | GLOBAL-06 | Phase 1 | Complete |
 | GLOBAL-07 | Phase 5 | Pending |
 | GLOBAL-08 | Phase 5 | Pending |
