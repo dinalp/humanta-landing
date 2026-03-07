@@ -1,7 +1,9 @@
 "use client";
 
+import { useRef } from "react";
 import { PRICING_PLANS } from "@/lib/constants";
 import { AnimatedButton } from "@/components/AnimatedButton";
+import { gsap, useGSAP } from "@/lib/gsap";
 
 function CheckIcon() {
   return (
@@ -21,10 +23,47 @@ function CheckIcon() {
 }
 
 export function Pricing() {
+  const containerRef = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      gsap.from(".pricing-heading", {
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+        },
+      });
+
+      gsap.from(".pricing-card", {
+        y: 50,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".pricing-card",
+          start: "top 85%",
+        },
+      });
+    },
+    { scope: containerRef }
+  );
+
   return (
-    <section id="plans" className="bg-brand-cream py-24 lg:py-32">
+    <section
+      id="plans"
+      className="bg-brand-cream py-24 lg:py-32"
+      ref={containerRef}
+    >
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="font-heading font-semibold text-3xl md:text-4xl text-brand-text text-center mb-16">
+        <h2
+          className="pricing-heading font-heading font-semibold text-3xl md:text-4xl text-brand-text text-center mb-16"
+          style={{ opacity: 0 }}
+        >
           Plans
         </h2>
 
@@ -32,7 +71,8 @@ export function Pricing() {
           {PRICING_PLANS.map((plan) => (
             <div
               key={plan.name}
-              className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col"
+              className="pricing-card bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col"
+              style={{ opacity: 0 }}
             >
               <h3 className="font-heading text-xl font-semibold text-brand-text">
                 {plan.name}
