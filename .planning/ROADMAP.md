@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Foundation (theme, fonts, types, constants, images) + Navbar + Hero
+- [x] 01-01-PLAN.md — Foundation (theme, fonts, types, constants, images) + Navbar + Hero
 - [ ] 01-02-PLAN.md — Story, How It Works, and Pricing sections
 - [ ] 01-03-PLAN.md — FAQ, CTA Banner, Footer + full page assembly + visual verification
 
@@ -103,7 +103,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation and Layout | 0/3 | Planned | - |
+| 1. Foundation and Layout | 1/3 | In Progress | - |
 | 2. Scroll Animations | 0/2 | Not started | - |
 | 3. Interactive Components | 0/2 | Not started | - |
 | 4. Contact Form Backend | 0/2 | Not started | - |

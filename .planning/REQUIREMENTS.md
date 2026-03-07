@@ -7,15 +7,15 @@
 
 ### Navigation
 
-- [ ] **NAV-01**: User sees sticky nav with Humanta logo, section links (What we do, How it works, Plans), and "Get in touch" CTA button
+- [x] **NAV-01**: User sees sticky nav with Humanta logo, section links (What we do, How it works, Plans), and "Get in touch" CTA button
 - [ ] **NAV-02**: User can open mobile hamburger menu with animated slide-in containing all nav links
-- [ ] **NAV-03**: User can click nav link to smooth-scroll to the corresponding section
+- [x] **NAV-03**: User can click nav link to smooth-scroll to the corresponding section
 - [ ] **NAV-04**: User sees the active section highlighted in the nav as they scroll
-- [ ] **NAV-05**: Nav transitions from transparent (over hero) to solid background on scroll
+- [x] **NAV-05**: Nav transitions from transparent (over hero) to solid background on scroll
 
 ### Hero
 
-- [ ] **HERO-01**: User sees full-viewport hero with background image, "Make human connection company policy" tagline, "Humanta" headline, description text, and "Start now" CTA
+- [x] **HERO-01**: User sees full-viewport hero with background image, "Make human connection company policy" tagline, "Humanta" headline, description text, and "Start now" CTA
 - [ ] **HERO-02**: User sees parallax effect on hero background image when scrolling (desktop only)
 - [ ] **HERO-03**: User sees staggered text reveal animation on hero headline on page load
 
@@ -67,7 +67,7 @@
 - [ ] **GLOBAL-06**: Site is fully responsive across mobile, tablet, and desktop
 - [ ] **GLOBAL-07**: Site achieves Lighthouse 90+ performance score
 - [ ] **GLOBAL-08**: Site is deployed to Vercel
-- [ ] **GLOBAL-09**: All images sourced from live Framer site (humanta.co)
+- [x] **GLOBAL-09**: All images sourced from live Framer site (humanta.co)
 
 ## v2 Requirements
 
@@ -97,12 +97,12 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| NAV-01 | Phase 1 | Pending |
+| NAV-01 | Phase 1 | Complete |
 | NAV-02 | Phase 3 | Pending |
-| NAV-03 | Phase 1 | Pending |
+| NAV-03 | Phase 1 | Complete |
 | NAV-04 | Phase 3 | Pending |
-| NAV-05 | Phase 1 | Pending |
-| HERO-01 | Phase 1 | Pending |
+| NAV-05 | Phase 1 | Complete |
+| HERO-01 | Phase 1 | Complete |
 | HERO-02 | Phase 2 | Pending |
 | HERO-03 | Phase 2 | Pending |
 | STORY-01 | Phase 1 | Pending |
@@ -130,7 +130,7 @@
 | GLOBAL-06 | Phase 1 | Pending |
 | GLOBAL-07 | Phase 5 | Pending |
 | GLOBAL-08 | Phase 5 | Pending |
-| GLOBAL-09 | Phase 1 | Pending |
+| GLOBAL-09 | Phase 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 34 total
