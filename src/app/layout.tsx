@@ -3,6 +3,7 @@ import { Inter, Manrope, Poppins } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 import { FloatingCTA } from "@/components/FloatingCTA";
+import { SmoothScrollProvider } from "@/providers/SmoothScrollProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -57,8 +58,10 @@ export default function RootLayout({
     >
       <body className="font-body antialiased">
         <Providers>
-          {children}
-          <FloatingCTA />
+          <SmoothScrollProvider>
+            {children}
+            <FloatingCTA />
+          </SmoothScrollProvider>
         </Providers>
       </body>
     </html>
