@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Manrope, Poppins } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/components/Providers";
+import { FloatingCTA } from "@/components/FloatingCTA";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -53,7 +55,12 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${manrope.variable} ${poppins.variable}`}
     >
-      <body className="font-body antialiased">{children}</body>
+      <body className="font-body antialiased">
+        <Providers>
+          {children}
+          <FloatingCTA />
+        </Providers>
+      </body>
     </html>
   );
 }
