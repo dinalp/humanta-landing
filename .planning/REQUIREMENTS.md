@@ -16,8 +16,8 @@
 ### Hero
 
 - [x] **HERO-01**: User sees full-viewport hero with background image, "Make human connection company policy" tagline, "Humanta" headline, description text, and "Start now" CTA
-- [ ] **HERO-02**: User sees parallax effect on hero background image when scrolling (desktop only)
-- [ ] **HERO-03**: User sees staggered text reveal animation on hero headline on page load
+- [x] **HERO-02**: User sees parallax effect on hero background image when scrolling (desktop only)
+- [x] **HERO-03**: User sees staggered text reveal animation on hero headline on page load
 
 ### Story
 
@@ -61,7 +61,7 @@
 
 - [x] **GLOBAL-01**: User sees floating "Let's talk" button (bottom-right) on all pages
 - [ ] **GLOBAL-02**: User experiences scroll-triggered section reveals (fade + slide) throughout the page
-- [ ] **GLOBAL-03**: User experiences buttery-smooth scroll momentum (Lenis)
+- [x] **GLOBAL-03**: User experiences buttery-smooth scroll momentum (Lenis)
 - [x] **GLOBAL-04**: User sees micro-interactions on buttons/links (hover scale, glow)
 - [x] **GLOBAL-05**: Users with reduced-motion OS setting see content without animations
 - [x] **GLOBAL-06**: Site is fully responsive across mobile, tablet, and desktop
@@ -103,8 +103,8 @@
 | NAV-04 | Phase 3 | Pending |
 | NAV-05 | Phase 1 | Complete |
 | HERO-01 | Phase 1 | Complete |
-| HERO-02 | Phase 2 | Pending |
-| HERO-03 | Phase 2 | Pending |
+| HERO-02 | Phase 2 | Complete |
+| HERO-03 | Phase 2 | Complete |
 | STORY-01 | Phase 1 | Complete |
 | STORY-02 | Phase 2 | Pending |
 | STORY-03 | Phase 2 | Pending |
@@ -124,7 +124,7 @@
 | FOOT-01 | Phase 1 | Complete |
 | GLOBAL-01 | Phase 3 | Complete |
 | GLOBAL-02 | Phase 2 | Pending |
-| GLOBAL-03 | Phase 2 | Pending |
+| GLOBAL-03 | Phase 2 | Complete |
 | GLOBAL-04 | Phase 3 | Complete |
 | GLOBAL-05 | Phase 3 | Complete |
 | GLOBAL-06 | Phase 1 | Complete |

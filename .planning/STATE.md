@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: in-progress
-stopped_at: Completed 03-01-PLAN.md
-last_updated: "2026-03-07T00:34:41.496Z"
-last_activity: 2026-03-07 -- Plan 03-01 executed (Motion setup, FAQ accordion, FloatingCTA, hover micro-interactions)
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-03-07T00:47:00Z"
+last_activity: 2026-03-07 -- Plan 02-01 executed (GSAP/Lenis foundation, hero parallax, choreographed entrance)
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 7
-  completed_plans: 4
-  percent: 57
+  completed_plans: 5
+  percent: 71
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-06)
 
 **Core value:** The site must feel premium and human -- matching the warmth and polish of the Framer original while giving full code ownership and a working contact pipeline.
-**Current focus:** Phase 3: Interactive Components
+**Current focus:** Phase 2: Scroll Animations
 
 ## Current Position
 
-Phase: 3 of 5 (Interactive Components)
-Plan: 1 of 2 in current phase (03-01 done)
+Phase: 2 of 5 (Scroll Animations)
+Plan: 1 of 2 in current phase (02-01 done)
 Status: In Progress
-Last activity: 2026-03-07 -- Plan 03-01 executed (Motion setup, FAQ accordion, FloatingCTA, hover micro-interactions)
+Last activity: 2026-03-07 -- Plan 02-01 executed (GSAP/Lenis foundation, hero parallax, choreographed entrance)
 
-Progress: [██████░░░░] 57% overall
+Progress: [███████░░░] 71% overall
 
 ## Performance Metrics
 
@@ -53,6 +53,7 @@ Progress: [██████░░░░] 57% overall
 | Phase 01 P02 | 1min | 2 tasks | 5 files |
 | Phase 01 P03 | 8min | 2 tasks | 4 files |
 | Phase 03 P01 | 2min | 2 tasks | 8 files |
+| Phase 02 P01 | 1min | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -72,6 +73,10 @@ Recent decisions affecting current work:
 - [Phase 01]: FAQ answers all visible by default (accordion deferred to Phase 3 FAQ-02)
 - [03-01]: Providers wrapper pattern to inject client-only MotionConfig into server-component layout
 - [03-01]: Added "use client" to Hero, CTABanner, Pricing for AnimatedButton usage (simplest approach)
+- [02-01]: Lenis with autoRaf:true and lerp:0.1/duration:1.2 for smooth scroll feel
+- [02-01]: ScrollTrigger.matchMedia for desktop-only parallax (768px breakpoint)
+- [02-01]: SplitText word-by-word stagger with power3.out easing for premium entrance
+- [02-01]: Inline opacity:0 on animated elements to prevent FOUC before GSAP runs
 
 ### Pending Todos
 
@@ -84,6 +89,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-07T00:34:00Z
-Stopped at: Completed 03-01-PLAN.md
-Resume file: .planning/phases/03-interactive-components/03-01-SUMMARY.md
+Last session: 2026-03-07T00:47:00Z
+Stopped at: Completed 02-01-PLAN.md
+Resume file: .planning/phases/02-scroll-animations/02-01-SUMMARY.md
