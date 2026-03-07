@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { HERO_CONTENT } from "@/lib/constants";
+import { AnimatedButton } from "@/components/AnimatedButton";
 
 export function Hero() {
   return (
@@ -38,12 +41,12 @@ export function Hero() {
         </p>
 
         {/* CTA */}
-        <a
+        <AnimatedButton
           href={HERO_CONTENT.ctaHref}
           className="inline-block bg-brand-accent text-brand-text px-8 py-4 rounded-full text-lg font-medium hover:bg-brand-accent/90 transition-colors"
         >
           {HERO_CONTENT.ctaLabel}
-        </a>
+        </AnimatedButton>
       </div>
     </section>
   );

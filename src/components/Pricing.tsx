@@ -1,4 +1,7 @@
+"use client";
+
 import { PRICING_PLANS } from "@/lib/constants";
+import { AnimatedButton } from "@/components/AnimatedButton";
 
 function CheckIcon() {
   return (
@@ -47,12 +50,12 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <a
+              <AnimatedButton
                 href={plan.ctaHref}
                 className="bg-brand-dark text-white rounded-full py-3 w-full text-center font-medium hover:bg-brand-dark/90 transition-colors block"
               >
                 {plan.ctaLabel}
-              </a>
+              </AnimatedButton>
             </div>
           ))}
         </div>

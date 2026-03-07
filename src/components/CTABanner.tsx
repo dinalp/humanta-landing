@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { CTA_CONTENT } from "@/lib/constants";
+import { AnimatedButton } from "@/components/AnimatedButton";
 
 export function CTABanner() {
   return (
@@ -18,12 +21,12 @@ export function CTABanner() {
         <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-white max-w-3xl mx-auto mb-8">
           {CTA_CONTENT.headline}
         </h2>
-        <a
+        <AnimatedButton
           href={CTA_CONTENT.ctaHref}
           className="inline-block bg-brand-accent text-brand-dark font-semibold px-8 py-4 rounded-full text-lg hover:bg-brand-accent/90 transition-colors"
         >
           {CTA_CONTENT.ctaLabel}
-        </a>
+        </AnimatedButton>
       </div>
     </section>
   );
