@@ -38,12 +38,12 @@
 
 ### FAQ
 
-- [ ] **FAQ-01**: User sees "Everything you need to know" section with 6 expandable questions
+- [x] **FAQ-01**: User sees "Everything you need to know" section with 6 expandable questions
 - [ ] **FAQ-02**: User can expand/collapse FAQ items with smooth height animation
 
 ### CTA Banner
 
-- [ ] **CTA-01**: User sees full-width CTA section with warm background image, "Ready to keep and attract the best talent?" headline, and "Let's Talk" button
+- [x] **CTA-01**: User sees full-width CTA section with warm background image, "Ready to keep and attract the best talent?" headline, and "Let's Talk" button
 
 ### Contact
 
@@ -55,7 +55,7 @@
 
 ### Footer
 
-- [ ] **FOOT-01**: User sees footer with Humanta logo, tagline, section links, social links (LinkedIn, Instagram, TikTok), and privacy policy link
+- [x] **FOOT-01**: User sees footer with Humanta logo, tagline, section links, social links (LinkedIn, Instagram, TikTok), and privacy policy link
 
 ### Global
 
@@ -64,7 +64,7 @@
 - [ ] **GLOBAL-03**: User experiences buttery-smooth scroll momentum (Lenis)
 - [ ] **GLOBAL-04**: User sees micro-interactions on buttons/links (hover scale, glow)
 - [ ] **GLOBAL-05**: Users with reduced-motion OS setting see content without animations
-- [ ] **GLOBAL-06**: Site is fully responsive across mobile, tablet, and desktop
+- [x] **GLOBAL-06**: Site is fully responsive across mobile, tablet, and desktop
 - [ ] **GLOBAL-07**: Site achieves Lighthouse 90+ performance score
 - [ ] **GLOBAL-08**: Site is deployed to Vercel
 - [x] **GLOBAL-09**: All images sourced from live Framer site (humanta.co)
@@ -113,21 +113,21 @@
 | HIW-02 | Phase 3 | Pending |
 | PRICE-01 | Phase 1 | Complete |
 | PRICE-02 | Phase 1 | Complete |
-| FAQ-01 | Phase 1 | Pending |
+| FAQ-01 | Phase 1 | Complete |
 | FAQ-02 | Phase 3 | Pending |
-| CTA-01 | Phase 1 | Pending |
+| CTA-01 | Phase 1 | Complete |
 | CONTACT-01 | Phase 4 | Pending |
 | CONTACT-02 | Phase 4 | Pending |
 | CONTACT-03 | Phase 4 | Pending |
 | CONTACT-04 | Phase 4 | Pending |
 | CONTACT-05 | Phase 4 | Pending |
-| FOOT-01 | Phase 1 | Pending |
+| FOOT-01 | Phase 1 | Complete |
 | GLOBAL-01 | Phase 3 | Pending |
 | GLOBAL-02 | Phase 2 | Pending |
 | GLOBAL-03 | Phase 2 | Pending |
 | GLOBAL-04 | Phase 3 | Pending |
 | GLOBAL-05 | Phase 3 | Pending |
-| GLOBAL-06 | Phase 1 | Pending |
+| GLOBAL-06 | Phase 1 | Complete |
 | GLOBAL-07 | Phase 5 | Pending |
 | GLOBAL-08 | Phase 5 | Pending |
 | GLOBAL-09 | Phase 1 | Complete |
