@@ -3,6 +3,9 @@ import { Hero } from "@/components/Hero";
 import { Story } from "@/components/Story";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Pricing } from "@/components/Pricing";
+import { FAQ } from "@/components/FAQ";
+import { CTABanner } from "@/components/CTABanner";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -13,8 +16,10 @@ export default function Home() {
         <Story />
         <HowItWorks />
         <Pricing />
-        {/* FAQ, CTA Banner, and Footer added in Plan 03 */}
+        <FAQ />
+        <CTABanner />
       </main>
+      <Footer />
     </>
   );
 }
