@@ -46,11 +46,11 @@ Plans:
   3. User experiences scroll-pinned story panels with clip-path/scale image reveals as they scroll through the story section
   4. User sees fade-and-slide section reveals triggered by scroll throughout the page
   5. User experiences smooth scroll momentum across the entire page (Lenis)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md — Animation foundation (GSAP/Lenis setup, smooth scroll provider, reveal hook) + Hero parallax and choreographed entrance
+- [ ] 02-02-PLAN.md — Story section scroll-pinning with clip-path image reveals + Section reveals on all remaining components + Visual verification
 
 ### Phase 3: Interactive Components
 **Goal**: User can interact with all dynamic UI elements -- accordion, tabbed stepper, mobile menu, floating CTA, and hover effects -- with reduced-motion support
