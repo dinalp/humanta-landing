@@ -21,20 +21,20 @@
 
 ### Story
 
-- [ ] **STORY-01**: User sees 3 dark-background panels with text (left) and image (right) telling the Humanta story
+- [x] **STORY-01**: User sees 3 dark-background panels with text (left) and image (right) telling the Humanta story
 - [ ] **STORY-02**: User experiences scroll-pinned panel transitions (GSAP) as they scroll through the story section
 - [ ] **STORY-03**: User sees images reveal via clip-path/scale animations as panels enter
-- [ ] **STORY-04**: User sees key phrases highlighted in orange (#f5b614) accent text
+- [x] **STORY-04**: User sees key phrases highlighted in orange (#f5b614) accent text
 
 ### How It Works
 
-- [ ] **HIW-01**: User sees "How Humanta Works" section with 4 numbered steps on cream background
+- [x] **HIW-01**: User sees "How Humanta Works" section with 4 numbered steps on cream background
 - [ ] **HIW-02**: User can navigate between steps via tab/stepper UI with animated transitions
 
 ### Pricing
 
-- [ ] **PRICE-01**: User sees 2 pricing cards: Essential (per redeemed spark) and Pilot Package - Sydney (10 Humanta Sparks)
-- [ ] **PRICE-02**: Each card shows feature checklist with checkmarks and "Get in touch" CTA
+- [x] **PRICE-01**: User sees 2 pricing cards: Essential (per redeemed spark) and Pilot Package - Sydney (10 Humanta Sparks)
+- [x] **PRICE-02**: Each card shows feature checklist with checkmarks and "Get in touch" CTA
 
 ### FAQ
 
@@ -105,14 +105,14 @@
 | HERO-01 | Phase 1 | Complete |
 | HERO-02 | Phase 2 | Pending |
 | HERO-03 | Phase 2 | Pending |
-| STORY-01 | Phase 1 | Pending |
+| STORY-01 | Phase 1 | Complete |
 | STORY-02 | Phase 2 | Pending |
 | STORY-03 | Phase 2 | Pending |
-| STORY-04 | Phase 1 | Pending |
-| HIW-01 | Phase 1 | Pending |
+| STORY-04 | Phase 1 | Complete |
+| HIW-01 | Phase 1 | Complete |
 | HIW-02 | Phase 3 | Pending |
-| PRICE-01 | Phase 1 | Pending |
-| PRICE-02 | Phase 1 | Pending |
+| PRICE-01 | Phase 1 | Complete |
+| PRICE-02 | Phase 1 | Complete |
 | FAQ-01 | Phase 1 | Pending |
 | FAQ-02 | Phase 3 | Pending |
 | CTA-01 | Phase 1 | Pending |
