@@ -27,9 +27,9 @@ export function Pricing() {
 
   useGSAP(
     () => {
-      gsap.from(".pricing-heading", {
-        y: 30,
-        opacity: 0,
+      gsap.fromTo(".pricing-heading", { y: 30, opacity: 0 }, {
+        y: 0,
+        opacity: 1,
         duration: 0.7,
         ease: "power2.out",
         scrollTrigger: {
@@ -38,9 +38,9 @@ export function Pricing() {
         },
       });
 
-      gsap.from(".pricing-card", {
-        y: 50,
-        opacity: 0,
+      gsap.fromTo(".pricing-card", { y: 50, opacity: 0 }, {
+        y: 0,
+        opacity: 1,
         duration: 0.7,
         stagger: 0.15,
         ease: "power2.out",

@@ -57,9 +57,9 @@ export function FAQ() {
 
   useGSAP(
     () => {
-      gsap.from(".faq-heading", {
-        y: 30,
-        opacity: 0,
+      gsap.fromTo(".faq-heading", { y: 30, opacity: 0 }, {
+        y: 0,
+        opacity: 1,
         duration: 0.7,
         ease: "power2.out",
         scrollTrigger: {
@@ -68,9 +68,9 @@ export function FAQ() {
         },
       });
 
-      gsap.from(".faq-item", {
-        y: 30,
-        opacity: 0,
+      gsap.fromTo(".faq-item", { y: 30, opacity: 0 }, {
+        y: 0,
+        opacity: 1,
         duration: 0.6,
         stagger: 0.08,
         ease: "power2.out",

@@ -34,10 +34,17 @@ export function Story() {
   useGSAP(
     () => {
       ScrollTrigger.matchMedia({
-        // Desktop: pinned panels with cross-fade and clip-path reveals
+        // Desktop: stacking card panels that scroll up on top of each other
         "(min-width: 768px)": () => {
           const panels =
             gsap.utils.toArray<HTMLElement>(".story-panel");
+
+          // Position all panels below viewport except the first
+          panels.forEach((panel, i) => {
+            if (i > 0) {
+              gsap.set(panel, { yPercent: 100 });
+            }
+          });
 
           const tl = gsap.timeline({
             scrollTrigger: {
@@ -45,34 +52,33 @@ export function Story() {
               pin: true,
               scrub: 1,
               start: "top top",
-              end: "+=300%",
+              end: `+=${panels.length * 100}%`,
             },
           });
 
-          // Panel 0 is already visible; animate panels 1 and 2
           for (let i = 1; i < panels.length; i++) {
-            // Fade out previous panel text
+            // Scale down the current top card
             tl.to(
-              panels[i - 1].querySelector(".panel-text"),
-              { opacity: 0, duration: 0.3 }
+              panels[i - 1],
+              {
+                scale: 0.92,
+                duration: 0.5,
+              }
             );
-            // Fade in current panel
-            tl.to(panels[i], { opacity: 1, duration: 0.3 }, "<");
-            // Fade in current panel text with slight y offset
-            tl.from(
-              panels[i].querySelector(".panel-text")!,
-              { opacity: 0, y: 30, duration: 0.3 },
-              "<0.1"
-            );
-            // Clip-path reveal on image
-            tl.fromTo(
-              panels[i].querySelector(".panel-image")!,
-              { clipPath: "circle(0% at 50% 50%)" },
-              { clipPath: "circle(100% at 50% 50%)", duration: 0.5 },
+
+            // Slide the next panel up from below
+            tl.to(
+              panels[i],
+              {
+                yPercent: 0,
+                duration: 0.5,
+                ease: "power2.inOut",
+              },
               "<"
             );
-            // Pause between panels
-            tl.to({}, { duration: 0.2 });
+
+            // Pause so each card rests briefly
+            tl.to({}, { duration: 0.15 });
           }
 
           ScrollTrigger.refresh();
@@ -84,16 +90,20 @@ export function Story() {
             gsap.utils.toArray<HTMLElement>(".story-panel-mobile");
 
           mobilePanels.forEach((el) => {
-            gsap.from(el, {
-              y: 40,
-              opacity: 0,
-              duration: 0.7,
-              ease: "power2.out",
-              scrollTrigger: {
-                trigger: el,
-                start: "top 85%",
-              },
-            });
+            gsap.fromTo(
+              el,
+              { y: 40, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.7,
+                ease: "power2.out",
+                scrollTrigger: {
+                  trigger: el,
+                  start: "top 85%",
+                },
+              }
+            );
           });
         },
       });
@@ -140,18 +150,22 @@ export function Story() {
         </div>
       </div>
 
-      {/* Desktop: pinned container (hidden below md) */}
+      {/* Desktop: pinned stacking cards */}
       <div
-        className="hidden md:block relative h-screen"
+        className="hidden md:block relative h-screen overflow-hidden"
         ref={pinContainerRef}
       >
         {STORY_PANELS.map((panel, index) => (
           <div
             key={panel.title}
             className="story-panel absolute inset-0 flex items-center"
-            style={{ opacity: index === 0 ? 1 : 0 }}
+            style={{
+              zIndex: index + 1,
+              borderRadius: "1.5rem",
+            }}
           >
-            <div className="max-w-6xl mx-auto px-6 flex gap-16 items-center">
+            <div className="absolute inset-0 bg-brand-dark" />
+            <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 flex gap-16 items-center w-full">
               {/* Text side */}
               <div className="w-1/2 panel-text">
                 <h2 className="font-heading font-semibold text-3xl lg:text-4xl text-white mb-4">
@@ -166,24 +180,14 @@ export function Story() {
               </div>
 
               {/* Image side */}
-              <div className="w-1/2 relative overflow-hidden rounded-2xl aspect-[3/2]">
-                <div
-                  className="panel-image w-full h-full"
-                  style={{
-                    clipPath:
-                      index === 0
-                        ? "circle(100% at 50% 50%)"
-                        : "circle(0% at 50% 50%)",
-                  }}
-                >
-                  <Image
-                    src={panel.image}
-                    alt={panel.imageAlt}
-                    fill
-                    className="object-cover"
-                    sizes="50vw"
-                  />
-                </div>
+              <div className="w-1/2 relative overflow-hidden rounded-2xl aspect-[3/2] shadow-2xl">
+                <Image
+                  src={panel.image}
+                  alt={panel.imageAlt}
+                  fill
+                  className="object-cover"
+                  sizes="50vw"
+                />
               </div>
             </div>
           </div>

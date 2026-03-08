@@ -34,15 +34,18 @@ export function Hero() {
 
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      tl.from(split.words, {
+      tl.fromTo(split.words, {
         y: 60,
         opacity: 0,
+      }, {
+        y: 0,
+        opacity: 1,
         duration: 0.8,
         stagger: 0.08,
       })
-        .from(".hero-tagline", { y: 20, opacity: 0, duration: 0.5 }, "-=0.4")
-        .from(".hero-subtext", { y: 30, opacity: 0, duration: 0.6 }, "-=0.2")
-        .from(".hero-cta", { y: 20, opacity: 0, duration: 0.5 }, "-=0.2");
+        .fromTo(".hero-tagline", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, "-=0.4")
+        .fromTo(".hero-subtext", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, "-=0.2")
+        .fromTo(".hero-cta", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, "-=0.2");
     },
     { scope: heroRef }
   );

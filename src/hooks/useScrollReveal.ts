@@ -42,10 +42,10 @@ export function useScrollReveal<T extends HTMLElement = HTMLElement>(
           : "play none none reverse",
       };
 
-      gsap.from(targets, {
-        y,
-        x,
-        opacity: 0,
+      gsap.fromTo(targets, { y, x, opacity: 0 }, {
+        y: 0,
+        x: 0,
+        opacity: 1,
         duration,
         ease: "power2.out",
         stagger: childSelector ? stagger : 0,

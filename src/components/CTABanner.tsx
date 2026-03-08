@@ -12,9 +12,9 @@ export function CTABanner() {
   useGSAP(
     () => {
       // Content fade-up reveal
-      gsap.from(".cta-content", {
-        y: 40,
-        opacity: 0,
+      gsap.fromTo(".cta-content", { y: 40, opacity: 0 }, {
+        y: 0,
+        opacity: 1,
         duration: 0.8,
         ease: "power2.out",
         scrollTrigger: {
