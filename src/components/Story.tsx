@@ -1,197 +1,127 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
-import { STORY_PANELS } from "@/lib/constants";
-import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
-
-function HighlightedText({
-  text,
-  highlight,
-}: {
-  text: string;
-  highlight: string;
-}) {
-  const index = text.indexOf(highlight);
-  if (index === -1) return <>{text}</>;
-
-  const before = text.slice(0, index);
-  const after = text.slice(index + highlight.length);
-
-  return (
-    <>
-      {before}
-      <span className="text-brand-accent font-semibold">{highlight}</span>
-      {after}
-    </>
-  );
-}
+import { gsap, useGSAP } from "@/lib/gsap";
 
 export function Story() {
-  const containerRef = useRef<HTMLElement>(null);
-  const pinContainerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useGSAP(
     () => {
-      ScrollTrigger.matchMedia({
-        // Desktop: stacking card panels that scroll up on top of each other
-        "(min-width: 768px)": () => {
-          const panels =
-            gsap.utils.toArray<HTMLElement>(".story-panel");
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-          // Position all panels below viewport except the first
-          panels.forEach((panel, i) => {
-            if (i > 0) {
-              gsap.set(panel, { yPercent: 100 });
-            }
-          });
+      gsap.fromTo(
+        ".thesis-label",
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 75%",
+          },
+        }
+      );
 
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: pinContainerRef.current,
-              pin: true,
-              scrub: 1,
-              start: "top top",
-              end: `+=${panels.length * 100}%`,
-            },
-          });
+      gsap.fromTo(
+        ".thesis-headline",
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 72%",
+          },
+        }
+      );
 
-          for (let i = 1; i < panels.length; i++) {
-            // Scale down the current top card
-            tl.to(
-              panels[i - 1],
-              {
-                scale: 0.92,
-                duration: 0.5,
-              }
-            );
-
-            // Slide the next panel up from below
-            tl.to(
-              panels[i],
-              {
-                yPercent: 0,
-                duration: 0.5,
-                ease: "power2.inOut",
-              },
-              "<"
-            );
-
-            // Pause so each card rests briefly
-            tl.to({}, { duration: 0.15 });
-          }
-
-          ScrollTrigger.refresh();
-        },
-
-        // Mobile: simple fade/slide reveals
-        "(max-width: 767px)": () => {
-          const mobilePanels =
-            gsap.utils.toArray<HTMLElement>(".story-panel-mobile");
-
-          mobilePanels.forEach((el) => {
-            gsap.fromTo(
-              el,
-              { y: 40, opacity: 0 },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.7,
-                ease: "power2.out",
-                scrollTrigger: {
-                  trigger: el,
-                  start: "top 85%",
-                },
-              }
-            );
-          });
-        },
-      });
+      gsap.fromTo(
+        ".thesis-body",
+        { opacity: 0, y: 25 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".thesis-body",
+            start: "top 85%",
+          },
+        }
+      );
     },
-    { scope: containerRef }
+    { scope: sectionRef }
   );
 
   return (
-    <section ref={containerRef} id="what-we-do" className="bg-brand-dark">
-      {/* Mobile: stacked panels (visible below md) */}
-      <div className="md:hidden py-24 px-6">
-        <div className="max-w-6xl mx-auto space-y-20">
-          {STORY_PANELS.map((panel) => (
-            <div
-              key={panel.title}
-              className="story-panel-mobile flex flex-col-reverse gap-10 items-center"
-              style={{ opacity: 0 }}
+    <section
+      ref={sectionRef}
+      id="about"
+      className="bg-[#FAFAF8] py-24 lg:py-36 px-6 lg:px-8"
+    >
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row lg:gap-20 xl:gap-28">
+          {/* Left column: problem statement */}
+          <div className="lg:w-[45%] lg:sticky lg:top-32 lg:self-start mb-12 lg:mb-0">
+            <span className="thesis-label inline-block text-[13px] font-semibold uppercase tracking-[0.08em] text-[#F26B3A] mb-5">
+              The problem
+            </span>
+            <h2
+              className="thesis-headline text-[28px] sm:text-[36px] lg:text-[44px] font-bold leading-[1.15] text-[#1A1A1A]"
+              style={{ fontFamily: "var(--font-plus-jakarta), sans-serif" }}
             >
-              {/* Text side */}
-              <div>
-                <h2 className="font-heading font-semibold text-2xl text-white mb-4">
-                  {panel.title}
-                </h2>
-                <p className="font-body text-white/70 text-base leading-relaxed">
-                  <HighlightedText
-                    text={panel.description}
-                    highlight={panel.highlightPhrase}
-                  />
-                </p>
-              </div>
+              Your team doesn't remember the gift card. They never will.
+            </h2>
+          </div>
 
-              {/* Image side */}
-              <div className="relative overflow-hidden rounded-2xl aspect-[3/2] w-full">
-                <Image
-                  src={panel.image}
-                  alt={panel.imageAlt}
-                  fill
-                  className="object-cover"
-                  sizes="100vw"
-                />
-              </div>
+          {/* Right column: thesis breakdown */}
+          <div className="lg:w-[55%] space-y-10">
+            <div className="thesis-body">
+              <p className="text-[16px] lg:text-[17px] leading-[1.75] text-[#4B5563]">
+                Companies pour money into perks that vanish the moment they land.
+                Gift cards get spent on petrol. Pizza parties get eye-rolls.
+                Points platforms collect dust. Meanwhile, the one thing people
+                actually want from their employer has nothing to do with a
+                discount code.
+              </p>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Desktop: pinned stacking cards */}
-      <div
-        className="hidden md:block relative h-screen overflow-hidden"
-        ref={pinContainerRef}
-      >
-        {STORY_PANELS.map((panel, index) => (
-          <div
-            key={panel.title}
-            className="story-panel absolute inset-0 flex items-center"
-            style={{
-              zIndex: index + 1,
-              borderRadius: "1.5rem",
-            }}
-          >
-            <div className="absolute inset-0 bg-brand-dark" />
-            <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 flex gap-16 items-center w-full">
-              {/* Text side */}
-              <div className="w-1/2 panel-text">
-                <h2 className="font-heading font-semibold text-3xl lg:text-4xl text-white mb-4">
-                  {panel.title}
-                </h2>
-                <p className="font-body text-white/70 text-base md:text-lg leading-relaxed">
-                  <HighlightedText
-                    text={panel.description}
-                    highlight={panel.highlightPhrase}
-                  />
-                </p>
-              </div>
+            <div className="thesis-body">
+              <p className="text-[16px] lg:text-[17px] leading-[1.75] text-[#4B5563]">
+                They want to feel recognised. Not with a Slack emoji or a
+                templated email, but in a way that reaches into their actual
+                life. The kind of recognition their partner hears about over
+                dinner. The kind that makes someone proud to work where they
+                work.
+              </p>
+            </div>
 
-              {/* Image side */}
-              <div className="w-1/2 relative overflow-hidden rounded-2xl aspect-[3/2] shadow-2xl">
-                <Image
-                  src={panel.image}
-                  alt={panel.imageAlt}
-                  fill
-                  className="object-cover"
-                  sizes="50vw"
-                />
-              </div>
+            <div className="thesis-body">
+              <p className="text-[16px] lg:text-[17px] leading-[1.75] text-[#4B5563]">
+                AI is reshaping every team. Restructures are thinning them out.
+                The companies that win from here aren't just the most efficient.
+                They're the ones where people are genuinely engaged, where
+                retention isn't a spreadsheet problem but a culture one.
+              </p>
+            </div>
+
+            <div className="thesis-body">
+              <p className="text-[18px] lg:text-[20px] leading-[1.6] text-[#1A1A1A] font-semibold"
+                 style={{ fontFamily: "var(--font-plus-jakarta), sans-serif" }}
+              >
+                Human connection isn't a perk. It's an operating input. The
+                companies that invest in it will outperform. Humanta makes that
+                investment easy.
+              </p>
             </div>
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );

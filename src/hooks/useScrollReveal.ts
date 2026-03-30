@@ -30,6 +30,11 @@ export function useScrollReveal<T extends HTMLElement = HTMLElement>(
     () => {
       if (!ref.current) return;
 
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+      if (prefersReducedMotion) return;
+
       const targets = childSelector
         ? gsap.utils.toArray(childSelector, ref.current)
         : ref.current;
@@ -42,15 +47,19 @@ export function useScrollReveal<T extends HTMLElement = HTMLElement>(
           : "play none none reverse",
       };
 
-      gsap.fromTo(targets, { y, x, opacity: 0 }, {
-        y: 0,
-        x: 0,
-        opacity: 1,
-        duration,
-        ease: "power2.out",
-        stagger: childSelector ? stagger : 0,
-        scrollTrigger,
-      });
+      gsap.fromTo(
+        targets,
+        { y, x, opacity: 0 },
+        {
+          y: 0,
+          x: 0,
+          opacity: 1,
+          duration,
+          ease: "power2.out",
+          stagger: childSelector ? stagger : 0,
+          scrollTrigger,
+        }
+      );
     },
     { scope: ref }
   );

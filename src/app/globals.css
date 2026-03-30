@@ -1,28 +1,199 @@
 @import "tailwindcss";
 
 @theme inline {
+  /* Fonts — mapped from next/font CSS variables */
+  --font-heading: var(--font-plus-jakarta);
+  --font-body: var(--font-inter);
   --font-sans: var(--font-inter);
-  --font-heading: var(--font-manrope);
-  --font-body: var(--font-poppins);
 
-  --color-brand-dark: #0a0a0a;
-  --color-brand-cream: #f5f3ee;
-  --color-brand-accent: #f5b614;
-  --color-brand-text: #070a06;
-  --color-brand-text-secondary: #8a8a8a;
-  --color-brand-border: rgba(255, 255, 255, 0.1);
+  /* Humanta brand colors */
+  --color-humanta-coral: #F26B3A;
+  --color-humanta-orange: #F09030;
+  --color-humanta-gold: #E8B830;
+  --color-humanta-lime: #A0C830;
+  --color-humanta-teal: #00B890;
+
+  /* Background colors */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #FAFAF8;
+  --color-bg-dark: #1A1A1A;
+  --color-bg-dark-card: #242424;
+
+  /* Text colors */
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #9CA3AF;
+  --color-text-on-dark: #F5F5F0;
+  --color-text-on-dark-secondary: #999999;
+
+  /* Border colors */
+  --color-border-light: #E5E7EB;
+  --color-border-dark: rgba(255, 255, 255, 0.1);
 }
 
+/* ── Gradient custom properties (not expressible as single theme tokens) ── */
+:root {
+  --humanta-gradient: linear-gradient(135deg, #F26B3A 0%, #F09030 25%, #E8B830 50%, #00B890 100%);
+  --humanta-gradient-warm: linear-gradient(135deg, #F26B3A, #F09030, #E8B830);
+  --humanta-gradient-full: linear-gradient(135deg, #F26B3A 0%, #F09030 20%, #E8B830 40%, #A0C830 65%, #00B890 100%);
+}
+
+/* ── Base styles ── */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: var(--color-brand-dark);
-  color: white;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
 }
 
 ::selection {
-  background: var(--color-brand-accent);
-  color: black;
+  background: #F26B3A;
+  color: white;
+}
+
+/* ── Gradient utility classes ── */
+.gradient-text {
+  background: var(--humanta-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: var(--humanta-gradient);
+}
+
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  background: var(--humanta-gradient);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.gradient-glow {
+  box-shadow:
+    0 4px 24px rgba(242, 107, 58, 0.18),
+    0 2px 10px rgba(0, 184, 144, 0.12);
+}
+
+.gradient-wash {
+  position: absolute;
+  inset: -20%;
+  background: var(--humanta-gradient-full);
+  opacity: 0.15;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* ── Gradient section divider ── */
+.gradient-divider {
+  height: 1px;
+  background: var(--humanta-gradient);
+  opacity: 0.3;
+}
+
+/* ── Framer-style hover interactions ── */
+/* Shared premium ease: cubic-bezier(0.16, 1, 0.3, 1) */
+
+.hiw-tile {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hiw-tile:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-card {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+}
+
+.hiw-bottom {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hiw-bottom:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* Animated underline on hover — add class "hover-underline" */
+.hover-underline {
+  position: relative;
+}
+.hover-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* FAQ item hover */
+.faq-item {
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Keyframes ── */
+@keyframes gradient-drift {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1.3);
+  }
+  33% {
+    transform: translate(2%, -1%) rotate(1.5deg) scale(1.3);
+  }
+  66% {
+    transform: translate(-1%, 2%) rotate(-1deg) scale(1.3);
+  }
+}
+
+@keyframes gradient-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes cursor-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hide default cursor outside hero (fine pointer only) */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  body a, body button {
+    cursor: none;
+  }
+  #hero, #hero *,
+  #cta, #cta * {
+    cursor: url('/logos/humanta-cursor-white.png') 16 16, auto !important;
+  }
+  nav, nav * {
+    cursor: auto !important;
+  }
 }

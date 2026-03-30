@@ -1,29 +1,47 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
-import { NAV_LINKS } from "@/lib/constants";
 import { useActiveSection } from "@/hooks/useActiveSection";
+
+const NAV_LINKS = [
+  { label: "The problem", href: "/#about" },
+  { label: "Our approach", href: "/#sparks" },
+  { label: "How it works", href: "/#how-it-works" },
+  { label: "Why us", href: "/#difference" },
+  { label: "FAQ", href: "/#faq" },
+];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const activeSection = useActiveSection();
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      setScrolled(currentY > 50);
+
+      // Only show again when actively scrolling UP
+      if (currentY < lastScrollY.current) {
+        setHidden(false);
+      } else if (currentY > 100 && currentY > lastScrollY.current) {
+        setHidden(true);
+      }
+
+      lastScrollY.current = currentY;
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Body scroll lock when mobile menu is open
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
@@ -32,91 +50,120 @@ export function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
+        } ${
           scrolled
-            ? "bg-brand-dark/95 backdrop-blur-md shadow-lg"
+            ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-border-light"
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" className="flex-shrink-0">
+          <a
+            href="/"
+            className="flex items-center gap-2.5 flex-shrink-0 group"
+          >
             <Image
-              src="/logo-white.png"
+              src={scrolled ? "/logos/humanta-mark-black.png" : "/logos/humanta-mark-white.png"}
               alt="Humanta"
-              width={120}
-              height={34}
-              className="h-8 w-auto"
+              width={32}
+              height={32}
+              className="h-8 w-8 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:rotate-12"
               priority
             />
+            <span className={`text-xl font-heading font-bold transition-all duration-500 ease-out group-hover:tracking-wider group-hover:scale-105 origin-left ${
+              scrolled ? "text-text-primary" : "text-white"
+            }`}>
+              Humanta
+            </span>
           </a>
 
           {/* Desktop nav links */}
           <div className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => {
-              const sectionId = link.href.replace("#", "");
+            {NAV_LINKS.map((link, i) => {
+              const sectionId = link.href.replace("/#", "");
               const isActive = activeSection === sectionId;
 
               return (
-                <a
+                <motion.a
                   key={link.href}
                   href={link.href}
-                  className={`relative text-sm font-medium transition-colors ${
-                    isActive ? "text-white" : "text-white/80 hover:text-white"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * i + 0.2, duration: 0.5 }}
+                  className={`relative text-sm font-medium transition-colors duration-200 hover-underline ${
+                    scrolled
+                      ? isActive
+                        ? "text-text-primary"
+                        : "text-text-secondary hover:text-text-primary"
+                      : "text-white/80 hover:text-white"
                   }`}
                 >
                   {link.label}
                   {isActive && (
                     <motion.div
                       layoutId="nav-indicator"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-accent"
-                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-humanta-coral"
+                      transition={{
+                        type: "spring",
+                        stiffness: 350,
+                        damping: 30,
+                      }}
                     />
                   )}
-                </a>
+                </motion.a>
               );
             })}
           </div>
 
-          {/* Hamburger button (mobile) */}
-          <button
-            type="button"
-            className="md:hidden relative w-6 h-5 flex flex-col justify-between"
-            onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-          >
-            <motion.span
-              className="block w-full h-0.5 bg-white rounded-full origin-center"
-              animate={
-                menuOpen
-                  ? { rotate: 45, y: 8 }
-                  : { rotate: 0, y: 0 }
-              }
-              transition={{ duration: 0.25 }}
-            />
-            <motion.span
-              className="block w-full h-0.5 bg-white rounded-full"
-              animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-              transition={{ duration: 0.15 }}
-            />
-            <motion.span
-              className="block w-full h-0.5 bg-white rounded-full origin-center"
-              animate={
-                menuOpen
-                  ? { rotate: -45, y: -8 }
-                  : { rotate: 0, y: 0 }
-              }
-              transition={{ duration: 0.25 }}
-            />
-          </button>
+          {/* CTA + Hamburger */}
+          <div className="flex items-center gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+            >
+              <Link
+                href="/contact"
+                className={`hidden md:inline-flex px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  scrolled
+                    ? "bg-bg-dark text-text-on-dark hover:bg-bg-dark-card hover:shadow-lg"
+                    : "bg-white/15 text-white border border-white/30 hover:bg-white/25"
+                }`}
+              >
+                Talk to us
+              </Link>
+            </motion.div>
 
-          {/* CTA button (desktop only) */}
-          <a
-            href="#contact"
-            className="hidden md:inline-flex bg-brand-accent text-brand-text px-6 py-2.5 rounded-full text-sm font-medium hover:bg-brand-accent/90 transition-colors"
-          >
-            Get in touch
-          </a>
+            {/* Hamburger button (mobile) */}
+            <button
+              type="button"
+              className="md:hidden relative w-6 h-5 flex flex-col justify-between"
+              onClick={() => setMenuOpen((prev) => !prev)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+            >
+              <motion.span
+                className={`block w-full h-0.5 rounded-full ${scrolled ? "bg-text-primary" : "bg-white"} origin-center`}
+                animate={
+                  menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }
+                }
+                transition={{ duration: 0.25 }}
+              />
+              <motion.span
+                className={`block w-full h-0.5 rounded-full ${scrolled ? "bg-text-primary" : "bg-white"}`}
+                animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+                transition={{ duration: 0.15 }}
+              />
+              <motion.span
+                className={`block w-full h-0.5 rounded-full ${scrolled ? "bg-text-primary" : "bg-white"} origin-center`}
+                animate={
+                  menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }
+                }
+                transition={{ duration: 0.25 }}
+              />
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -126,7 +173,7 @@ export function Navbar() {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 z-40 bg-black/60"
+              className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -138,7 +185,7 @@ export function Navbar() {
             <motion.div
               role="dialog"
               aria-modal="true"
-              className="fixed top-0 right-0 bottom-0 z-50 w-80 max-w-full bg-brand-dark flex flex-col"
+              className="fixed top-0 right-0 bottom-0 z-50 w-80 max-w-full bg-white flex flex-col shadow-xl"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -150,7 +197,7 @@ export function Navbar() {
                   type="button"
                   onClick={() => setMenuOpen(false)}
                   aria-label="Close menu"
-                  className="text-white p-1"
+                  className="text-text-primary p-1 hover:text-humanta-coral transition-colors"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -176,20 +223,20 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="text-xl font-heading text-white hover:text-brand-accent transition-colors"
+                    className="text-xl font-heading font-semibold text-text-primary hover:text-humanta-coral transition-colors"
                   >
                     {link.label}
                   </a>
                 ))}
 
                 {/* CTA in mobile menu */}
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   onClick={() => setMenuOpen(false)}
-                  className="mt-4 inline-flex justify-center bg-brand-accent text-brand-text px-6 py-3 rounded-full text-sm font-medium hover:bg-brand-accent/90 transition-colors"
+                  className="mt-4 inline-flex justify-center bg-bg-dark text-text-on-dark px-6 py-3 rounded-full text-sm font-semibold hover:bg-bg-dark-card transition-all duration-300"
                 >
-                  Get in touch
-                </a>
+                  Talk to us
+                </Link>
               </nav>
             </motion.div>
           </>
