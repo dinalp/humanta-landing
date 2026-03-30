@@ -3,8 +3,18 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Humanta",
-  description: "Humanta privacy policy.",
+  title: "Privacy Policy",
+  description:
+    "How Humanta Pty Ltd collects, uses, and protects your personal information when using our platform and services.",
+  alternates: {
+    canonical: "/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Humanta",
+    description:
+      "How Humanta Pty Ltd collects, uses, and protects your personal information when using our platform and services.",
+    url: "https://humanta.co/privacy",
+  },
 };
 
 export default function PrivacyPage() {

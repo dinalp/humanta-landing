@@ -60,13 +60,13 @@ export function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
           {/* Logo */}
-          <a
+          <Link
             href="/"
             className="flex items-center gap-2.5 flex-shrink-0 group"
           >
             <Image
               src={scrolled ? "/logos/humanta-mark-black.png" : "/logos/humanta-mark-white.png"}
-              alt="Humanta"
+              alt="Humanta - employee recognition and team experiences"
               width={32}
               height={32}
               className="h-8 w-8 transition-transform duration-500 ease-out group-hover:scale-125 group-hover:rotate-12"
@@ -77,7 +77,7 @@ export function Navbar() {
             }`}>
               Humanta
             </span>
-          </a>
+          </Link>
 
           {/* Desktop nav links */}
           <div className="hidden md:flex items-center gap-8">

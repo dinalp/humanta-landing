@@ -8,10 +8,13 @@ import { SocialProof } from "@/components/SocialProof";
 import { FAQ } from "@/components/FAQ";
 import { CTABanner } from "@/components/CTABanner";
 import { Footer } from "@/components/Footer";
+import { OrganizationJsonLd, FAQJsonLd } from "@/components/JsonLd";
 
 export default function Home() {
   return (
     <>
+      <OrganizationJsonLd />
+      <FAQJsonLd />
       <Navbar />
       <main>
         <Hero />

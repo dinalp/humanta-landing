@@ -35,7 +35,7 @@ export function Footer() {
             <div className="flex items-center gap-2.5 justify-center md:justify-start">
               <Image
                 src="/logos/humanta-mark-white.png"
-                alt="Humanta"
+                alt="Humanta logo"
                 width={36}
                 height={36}
                 className="w-8 h-8 lg:w-9 lg:h-9"

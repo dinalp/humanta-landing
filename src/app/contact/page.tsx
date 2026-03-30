@@ -5,8 +5,18 @@ import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact | Humanta",
-  description: "Get in touch with the Humanta team.",
+  title: "Contact",
+  description:
+    "Talk to the Humanta team about employee recognition and curated team experiences. Based in Sydney, Australia.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Humanta",
+    description:
+      "Talk to the Humanta team about employee recognition and curated team experiences. Based in Sydney, Australia.",
+    url: "https://humanta.co/contact",
+  },
 };
 
 export default function ContactPage() {
@@ -20,7 +30,7 @@ export default function ContactPage() {
             <div className="lg:w-[45%] mb-12 lg:mb-0">
               <Image
                 src="/logos/humanta-mark-white.png"
-                alt="Humanta"
+                alt="Humanta logo"
                 width={56}
                 height={56}
                 className="w-12 h-12 lg:w-14 lg:h-14 mb-8"

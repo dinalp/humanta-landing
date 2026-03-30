@@ -110,9 +110,9 @@ export function ProductTiles() {
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         <div className="mb-12 lg:mb-16">
-          <span className="product-tile inline-block text-[13px] font-semibold uppercase tracking-[0.08em] text-[#F26B3A]">
+          <h2 className="product-tile text-[13px] font-semibold uppercase tracking-[0.08em] text-[#F26B3A]">
             Two approaches, one thesis
-          </span>
+          </h2>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-5 lg:gap-6">

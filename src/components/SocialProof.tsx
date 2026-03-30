@@ -70,6 +70,7 @@ export function SocialProof() {
       />
 
       <div className="social-proof-inner relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <h2 className="sr-only">What people are saying</h2>
         {/* Slides with side arrows */}
         <div className="relative min-h-[280px] flex items-center justify-center">
           {/* Left arrow */}
