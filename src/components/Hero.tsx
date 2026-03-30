@@ -1,12 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { motion } from "motion/react";
-
-const UnicornScene = dynamic(() => import("unicornstudio-react/next"), {
-  ssr: false,
-});
 
 const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -17,15 +12,12 @@ export function Hero() {
       className="relative h-screen min-h-[600px] overflow-hidden"
       style={{ cursor: "url('/logos/humanta-cursor-white.png') 16 16, auto" }}
     >
-      {/* WebGL scene as full background */}
-      <div className="absolute inset-0" style={{ bottom: "-80px" }}>
-        <UnicornScene
-          projectId="MMzQ6ua96gJtL5DcS7iV"
-          sdkUrl="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
-          width="100%"
-          height="100%"
-        />
-      </div>
+      {/* WebGL scene via vanilla SDK (loaded globally in layout) */}
+      <div
+        data-us-project="MMzQ6ua96gJtL5DcS7iV"
+        className="absolute inset-0"
+        style={{ bottom: "-80px", width: "100%", height: "calc(100% + 80px)" }}
+      />
 
       {/* Content overlay */}
       <div className="relative z-10 flex items-center h-full px-6 lg:px-12 xl:px-20">

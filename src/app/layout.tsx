@@ -5,6 +5,7 @@ import { Providers } from "@/components/Providers";
 import { FloatingCTA } from "@/components/FloatingCTA";
 import { CustomCursor } from "@/components/CustomCursor";
 import { SmoothScrollProvider } from "@/providers/SmoothScrollProvider";
+import { UnicornSDK } from "@/components/UnicornSDK";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -61,6 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakarta.variable} ${inter.variable} ${plusJakarta.variable}`}>
       <body className="font-sans antialiased">
+        <UnicornSDK />
         <Providers>
           <SmoothScrollProvider>
             {children}

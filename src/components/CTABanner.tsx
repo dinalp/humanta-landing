@@ -1,64 +1,11 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 export function CTABanner() {
   const containerRef = useRef<HTMLElement>(null);
-  const sceneContainerRef = useRef<HTMLDivElement>(null);
-  const sceneRef = useRef<{ destroy: () => void } | null>(null);
-
-  // Manually initialize a second Unicorn Studio scene
-  useEffect(() => {
-    let mounted = true;
-
-    const initScene = async () => {
-      // Wait for the SDK to be available (loaded by the hero's UnicornScene)
-      const waitForSDK = () =>
-        new Promise<void>((resolve) => {
-          const check = () => {
-            if ((window as unknown as Record<string, unknown>).UnicornStudio) {
-              resolve();
-            } else {
-              setTimeout(check, 200);
-            }
-          };
-          check();
-        });
-
-      await waitForSDK();
-      if (!mounted || !sceneContainerRef.current) return;
-
-      const US = (window as unknown as Record<string, { addScene: (opts: Record<string, unknown>) => Promise<{ destroy: () => void }> }>).UnicornStudio;
-
-      try {
-        const scene = await US.addScene({
-          elementId: "cta-unicorn",
-          projectId: "MMzQ6ua96gJtL5DcS7iV",
-          scale: 1,
-          dpi: 1,
-          fps: 60,
-          lazyLoad: true,
-          production: false,
-        });
-        if (mounted) {
-          sceneRef.current = scene;
-        }
-      } catch {
-        // Scene may already be initialized or SDK not ready
-      }
-    };
-
-    initScene();
-
-    return () => {
-      mounted = false;
-      if (sceneRef.current) {
-        sceneRef.current.destroy();
-      }
-    };
-  }, []);
 
   useGSAP(
     () => {
@@ -120,12 +67,11 @@ export function CTABanner() {
       ref={containerRef}
       className="relative overflow-hidden min-h-[400px]"
     >
-      {/* Unicorn Studios WebGL background */}
+      {/* WebGL scene via vanilla SDK */}
       <div
-        ref={sceneContainerRef}
-        id="cta-unicorn"
+        data-us-project="MMzQ6ua96gJtL5DcS7iV"
         className="absolute top-0 left-0 right-0 pointer-events-none"
-        style={{ height: "calc(100% + 80px)" }}
+        style={{ height: "calc(100% + 80px)", width: "100%" }}
       />
 
       {/* Content */}
@@ -141,11 +87,9 @@ export function CTABanner() {
             Stop spending money on things people forget
           </h2>
 
-          <p
-            className="cta-subline text-[16px] lg:text-[18px] mt-5 lg:mt-6 leading-[1.7] text-white/80"
-          >
-            One conversation is all it takes. We&apos;ll show you what recognition
-            looks like when people actually remember it.
+          <p className="cta-subline text-[16px] lg:text-[18px] mt-5 lg:mt-6 leading-[1.7] text-white/80">
+            One conversation is all it takes. We&apos;ll show you what
+            recognition looks like when people actually remember it.
           </p>
 
           <Link
@@ -154,7 +98,13 @@ export function CTABanner() {
           >
             Talk to us
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                d="M3 8h10m0 0L9 4m4 4L9 12"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </Link>
         </div>
