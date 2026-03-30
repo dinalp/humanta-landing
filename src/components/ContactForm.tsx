@@ -13,6 +13,7 @@ const employeeOptions = [
 export function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
+    company: "",
     email: "",
     phone: "",
     employees: "",
@@ -40,7 +41,7 @@ export function ContactForm() {
       if (!res.ok) throw new Error("Failed");
 
       setStatus("success");
-      setFormData({ name: "", email: "", phone: "", employees: "", notes: "" });
+      setFormData({ name: "", company: "", email: "", phone: "", employees: "", notes: "" });
     } catch {
       setStatus("error");
     }
@@ -52,7 +53,7 @@ export function ContactForm() {
       className="rounded-2xl p-8 lg:p-10"
       style={{ backgroundColor: "#242424" }}
     >
-      {/* Name + Email row */}
+      {/* Name + Company row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
         <div>
           <label
@@ -74,6 +75,28 @@ export function ContactForm() {
         </div>
         <div>
           <label
+            htmlFor="company"
+            className="block text-[14px] font-medium text-[#F5F5F0] mb-2"
+          >
+            Company
+          </label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            placeholder="Acme Inc."
+            value={formData.company}
+            onChange={handleChange}
+            required
+            className="w-full rounded-xl px-4 py-3 text-[15px] text-[#F5F5F0] placeholder-[#666] bg-[#1A1A1A] border border-[#333] outline-none transition-all duration-200 focus:border-[#F26B3A] focus:ring-1 focus:ring-[#F26B3A]/30"
+          />
+        </div>
+      </div>
+
+      {/* Email + Phone row */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label
             htmlFor="email"
             className="block text-[14px] font-medium text-[#F5F5F0] mb-2"
           >
@@ -90,10 +113,6 @@ export function ContactForm() {
             className="w-full rounded-xl px-4 py-3 text-[15px] text-[#F5F5F0] placeholder-[#666] bg-[#1A1A1A] border border-[#333] outline-none transition-all duration-200 focus:border-[#F26B3A] focus:ring-1 focus:ring-[#F26B3A]/30"
           />
         </div>
-      </div>
-
-      {/* Phone + Employees row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
         <div>
           <label
             htmlFor="phone"
@@ -111,6 +130,10 @@ export function ContactForm() {
             className="w-full rounded-xl px-4 py-3 text-[15px] text-[#F5F5F0] placeholder-[#666] bg-[#1A1A1A] border border-[#333] outline-none transition-all duration-200 focus:border-[#F26B3A] focus:ring-1 focus:ring-[#F26B3A]/30"
           />
         </div>
+      </div>
+
+      {/* Employees row */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
         <div>
           <label
             htmlFor="employees"

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 interface ContactPayload {
   name: string;
+  company: string;
   email: string;
   phone?: string;
   employees?: string;
@@ -76,6 +77,7 @@ async function writeToAirtable(data: ContactPayload) {
           {
             fields: {
               Name: data.name,
+              Company: data.company,
               Email: data.email,
               ...(data.phone ? { Phone: data.phone } : {}),
               ...(data.employees ? { Employees: data.employees } : {}),
@@ -110,6 +112,7 @@ async function sendSlackNotification(data: ContactPayload) {
   const lines = [
     `*New lead from humanta.co*`,
     `*Name:* ${data.name}`,
+    `*Company:* ${data.company}`,
     `*Email:* ${data.email}`,
     `*Phone:* ${data.phone || "Not provided"}`,
     `*Employees:* ${data.employees || "Not provided"}`,
