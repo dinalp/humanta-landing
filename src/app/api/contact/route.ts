@@ -19,23 +19,31 @@ export async function POST(request: Request) {
       );
     }
 
-    // Write to Airtable (don't let failure block response)
+    // Write to Airtable
     let airtableId: string | undefined;
+    let airtableError: string | undefined;
     try {
       const airtableResult = await writeToAirtable(body);
       airtableId = airtableResult?.id;
     } catch (err) {
-      console.error("Airtable write failed:", err);
+      airtableError = err instanceof Error ? err.message : String(err);
+      console.error("Airtable write failed:", airtableError);
     }
 
-    // Send Slack notification (don't let failure block response)
+    // Send Slack notification
+    let slackOk = false;
     try {
       await sendSlackNotification(body);
+      slackOk = true;
     } catch (err) {
       console.error("Slack notification failed:", err);
     }
 
-    return NextResponse.json({ success: true, id: airtableId });
+    return NextResponse.json({
+      success: true,
+      airtable: airtableId ? "ok" : airtableError || "skipped",
+      slack: slackOk ? "ok" : "failed",
+    });
   } catch (err) {
     console.error("Contact form error:", err);
     return NextResponse.json(
