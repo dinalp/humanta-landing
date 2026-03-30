@@ -59,9 +59,9 @@ async function writeToAirtable(data: ContactPayload) {
             fields: {
               Name: data.name,
               Email: data.email,
-              Phone: data.phone || "",
-              Employees: data.employees || undefined,
-              Notes: data.notes || "",
+              ...(data.phone ? { Phone: data.phone } : {}),
+              ...(data.employees ? { Employees: data.employees } : {}),
+              ...(data.notes ? { Notes: data.notes } : {}),
               Status: "New",
               Submitted: new Date().toISOString(),
             },
