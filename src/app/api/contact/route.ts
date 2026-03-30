@@ -92,7 +92,7 @@ async function writeToAirtable(data: ContactPayload) {
   if (!res.ok) {
     const errBody = await res.text();
     console.error("Airtable error:", res.status, errBody);
-    throw new Error("Failed to write to Airtable");
+    throw new Error(`Airtable ${res.status}: ${errBody}`);
   }
 
   const result = await res.json();
