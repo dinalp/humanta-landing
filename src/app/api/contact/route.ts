@@ -19,13 +19,23 @@ export async function POST(request: Request) {
       );
     }
 
-    // Write to Airtable
-    const airtableResult = await writeToAirtable(body);
+    // Write to Airtable (don't let failure block response)
+    let airtableId: string | undefined;
+    try {
+      const airtableResult = await writeToAirtable(body);
+      airtableId = airtableResult?.id;
+    } catch (err) {
+      console.error("Airtable write failed:", err);
+    }
 
-    // Send Slack notification
-    await sendSlackNotification(body);
+    // Send Slack notification (don't let failure block response)
+    try {
+      await sendSlackNotification(body);
+    } catch (err) {
+      console.error("Slack notification failed:", err);
+    }
 
-    return NextResponse.json({ success: true, id: airtableResult?.id });
+    return NextResponse.json({ success: true, id: airtableId });
   } catch (err) {
     console.error("Contact form error:", err);
     return NextResponse.json(
@@ -89,43 +99,22 @@ async function sendSlackNotification(data: ContactPayload) {
     return;
   }
 
-  const blocks = [
-    {
-      type: "header",
-      text: {
-        type: "plain_text",
-        text: "New lead from humanta.co",
-        emoji: true,
-      },
-    },
-    {
-      type: "section",
-      fields: [
-        { type: "mrkdwn", text: `*Name*\n${data.name}` },
-        { type: "mrkdwn", text: `*Email*\n${data.email}` },
-        {
-          type: "mrkdwn",
-          text: `*Phone*\n${data.phone || "Not provided"}`,
-        },
-        {
-          type: "mrkdwn",
-          text: `*Employees*\n${data.employees || "Not provided"}`,
-        },
-      ],
-    },
+  const lines = [
+    `*New lead from humanta.co*`,
+    `*Name:* ${data.name}`,
+    `*Email:* ${data.email}`,
+    `*Phone:* ${data.phone || "Not provided"}`,
+    `*Employees:* ${data.employees || "Not provided"}`,
   ];
 
   if (data.notes) {
-    blocks.push({
-      type: "section",
-      fields: [{ type: "mrkdwn", text: `*Notes*\n${data.notes}` }],
-    });
+    lines.push(`*Notes:* ${data.notes}`);
   }
 
   const res = await fetch(webhookUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ blocks }),
+    body: JSON.stringify({ text: lines.join("\n") }),
   });
 
   if (!res.ok) {
