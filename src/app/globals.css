@@ -47,6 +47,7 @@ body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  -webkit-text-size-adjust: 100%;
 }
 
 ::selection {

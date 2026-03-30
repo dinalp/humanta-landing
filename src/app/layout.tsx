@@ -21,8 +21,18 @@ const inter = Inter({
 });
 
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover" as const,
+  themeColor: "#000000",
+};
+
 export const metadata: Metadata = {
   title: "Humanta | The human connection layer for companies",
+  appleWebApp: {
+    statusBarStyle: "black-translucent",
+  },
   description:
     "Humanta turns your perks or recognition budget into curated dining and experience moments. Matched to personality, booked end-to-end. Zero admin.",
   keywords: [
