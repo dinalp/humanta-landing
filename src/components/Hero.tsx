@@ -9,14 +9,14 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative h-screen min-h-[600px] overflow-hidden"
+      className="relative h-screen min-h-[600px] overflow-hidden bg-[#0a0a0a]"
       style={{ cursor: "url('/logos/humanta-cursor-white.png') 16 16, auto" }}
     >
       {/* WebGL scene via vanilla SDK (loaded globally in layout) */}
       <div
         id="us-hero"
-        className="absolute inset-0"
-        style={{ bottom: "-80px", width: "100%", height: "calc(100% + 80px)" }}
+        className="absolute inset-0 transition-opacity duration-1000"
+        style={{ bottom: "-80px", width: "100%", height: "calc(100% + 80px)", opacity: 0 }}
       />
 
       {/* Content overlay */}

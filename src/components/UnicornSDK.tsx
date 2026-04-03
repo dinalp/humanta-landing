@@ -31,7 +31,11 @@ export function UnicornSDK() {
             fps: 60,
             lazyLoad,
             production: true,
-          }).catch(() => {});
+          })
+            .then(() => {
+              el.style.opacity = "1";
+            })
+            .catch(() => {});
         });
       }}
     />

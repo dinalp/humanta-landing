@@ -102,6 +102,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${plusJakarta.variable} ${inter.variable}`}>
+      <head>
+        <link
+          rel="preload"
+          href="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.5/dist/unicornStudio.umd.js"
+          as="script"
+        />
+      </head>
       <body className="font-sans antialiased">
         <UnicornSDK />
         <Providers>
