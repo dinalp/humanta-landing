@@ -69,7 +69,7 @@ export function CTABanner() {
     >
       {/* WebGL scene via vanilla SDK */}
       <div
-        data-us-project="MMzQ6ua96gJtL5DcS7iV"
+        id="us-cta"
         className="absolute top-0 left-0 right-0 pointer-events-none"
         style={{ height: "calc(100% + 80px)", width: "100%" }}
       />

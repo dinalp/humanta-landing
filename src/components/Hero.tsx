@@ -14,7 +14,7 @@ export function Hero() {
     >
       {/* WebGL scene via vanilla SDK (loaded globally in layout) */}
       <div
-        data-us-project="MMzQ6ua96gJtL5DcS7iV"
+        id="us-hero"
         className="absolute inset-0"
         style={{ bottom: "-80px", width: "100%", height: "calc(100% + 80px)" }}
       />
