@@ -19,8 +19,6 @@ export function UnicornSDK() {
         const US = (window as any).UnicornStudio;
         if (!US) return;
 
-        const dpr = Math.min(window.devicePixelRatio || 1, 3);
-
         SCENES.forEach(({ elementId, lazyLoad }) => {
           const el = document.getElementById(elementId);
           if (!el) return;
@@ -29,13 +27,11 @@ export function UnicornSDK() {
             elementId,
             projectId: PROJECT_ID,
             scale: 1,
-            dpi: dpr,
+            dpi: 1,
             fps: 60,
             lazyLoad,
             production: true,
-          }).catch(() => {
-            // Scene may fail silently on some browsers
-          });
+          }).catch(() => {});
         });
       }}
     />
