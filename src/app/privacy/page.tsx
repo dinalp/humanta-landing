@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <Navbar />
+      <Navbar forceDark />
       <main className="min-h-screen bg-white pt-24 md:pt-28">
         <div className="max-w-3xl mx-auto px-6 lg:px-8 py-20 lg:py-32">
           <h1 className="font-heading font-bold text-[36px] md:text-[44px] lg:text-[48px] text-[#1A1A1A] leading-[1.1] mb-4">

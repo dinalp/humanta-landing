@@ -14,9 +14,13 @@ const NAV_LINKS = [
   { label: "FAQ", href: "/#faq" },
 ];
 
-export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
+interface NavbarProps {
+  forceDark?: boolean;
+}
+
+export function Navbar({ forceDark = false }: NavbarProps) {
+  const [scrolled, setScrolled] = useState(forceDark);
+  const [hidden, setHidden] = useState(forceDark);
   const [menuOpen, setMenuOpen] = useState(false);
   const activeSection = useActiveSection();
   const lastScrollY = useRef(0);
@@ -24,7 +28,7 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
-      setScrolled(currentY > 50);
+      setScrolled(forceDark || currentY > 50);
 
       // Only show again when actively scrolling UP
       if (currentY < lastScrollY.current) {
@@ -38,7 +42,7 @@ export function Navbar() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [forceDark]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
